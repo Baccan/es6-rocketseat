@@ -1,0 +1,16 @@
+{
+  "name": "curso-es6",
+  "version": "1.0.0",
+  "description": "Curso rocketseat javascript com ES6+",
+  "main": "index.js",
+  "author": "Gustavo Baccan Gomes <gustavo.gomes@butantan.gov.br>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5"
+  },
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w"
+  }
+}
