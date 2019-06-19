@@ -1,40 +1,22 @@
-class List {
-    constructor(){
-        this.data = []
+class TodoList{
+    construction(){
+        this.todos = []
     }
 
-    add(data){
-        this.data.push(data)
-        console.log(this.data)
-    }
-}
-// extends tem a função de copiar/realizar as mesmas funcionalidades de outra classe
-class TodoList extends List{
-    // constructor(){
-    //     this.todos = []
-    // }
-
-    // addTodo(){
-    //     this.todos.push('Novo todo')
-    //     console.log(this.todos)
-    // }
-
-    // super é responsável por reutilizar o método constructor da classe extendida
-    constructor(){
-        super()
-
-        this.usuario = 'Baccan'
-    }
-
-    mostrausuario() {
-        console.log(this.usuario)
+    // static não recebe as funcionalidades do constructor
+    // Utilizado para passar informações e retornar informações independente das outras funcionalidades da classe
+    static addTodo() {
+        this.todos.push('Novo todo')
+        console.log(this.todos)
     }
 }
 
-const MinhaLista = new TodoList()
-
-document.querySelector('#novoTodo').onclick = function() {
-    MinhaLista.add('Novo todo')
+class Matematica {
+    static soma(a, b){
+        return a + b
+    }
 }
 
-MinhaLista.mostrausuario()
+console.log(Matematica.soma(1, 2))
+
+TodoList.addTodo() // Erro proposital para verificar o funcionamento do método static
