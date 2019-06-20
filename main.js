@@ -1,41 +1,66 @@
-// Exemplo de desestruturação
+// Operadores rest/spread
+// deve-se utilizar o plugin do babel: "@babel/plugin-proposal-object-rest-spread"
+
+// REST - utilizado para pegar o "resto" das propriedades
 const usuario = {
   nome: "Baccan",
   idade: 21,
-  endereco: {
-    cidade: "São Paulo",
-    estado: "SP"
-  }
+  empresa: "Casa"
 };
 
-// Imagine que vc precise dos seguintes valores do usuario: nome, idade, cidade
-// Você não precisa fazer algo desta forma:
-/*
-    console.log(usuario.nome)
-    console.log(usuario.idade)
-    console.log(usuario.endereco.cidade)
-*/
-// Utilize a desestruturação
-// No caso, estamos criando 3 constantes (nome, idade e cidade) do usuario
-const {
-  nome,
-  idade,
-  endereco: { cidade }
-} = usuario;
+const { nome, ...resto } = usuario;
 
 console.log(nome);
-console.log(idade);
-console.log(cidade);
+console.log(resto);
 
-// também é possivel utilizar em funções
-// Sem desestruturação:
+// pode-se aplicar em vetores
+const arr = [1, 2, 3, 4];
+const [a, b, ...c] = arr;
+
+console.log(a);
+console.log(b);
+console.log(c);
+
+// para parâmetros de funções:
+// ao invés de:
 /*
-    function mostraNome(usuario){
-        console.log(usuario.nome)
+    function soma(a, b, c){
+        return a + b + c
     }
 */
-// com desestruturação:
-function mostraNome({ nome, idade, endereco: { cidade } }) {
-  console.log(nome, idade, cidade);
+// faça:
+/*
+  function soma(...params) {
+    return params;
+  }
+*/
+// exemplo com reduce apra somar todos os numeros
+function soma(...params) {
+  return params.reduce((total, next) => total + next);
 }
-mostraNome(usuario);
+
+console.log(soma(1, 3, 4));
+
+// SPREAD - responsável por propagar as informações de um objeto para outra estrutura de dados
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+// para juntar os arrays utilizando SPREAD
+const arr3 = [...arr1, ...arr2];
+
+console.log(arr3);
+
+// criando um novo objeto com as propridades de outro, e trocando propriedades
+const usuario1 = {
+  nome: "Baccan",
+  idade: 21,
+  empresa: "Casa"
+};
+
+const usuario2 = {
+  ...usuario1,
+  nome: "Gustavo"
+};
+
+console.log(usuario2);
