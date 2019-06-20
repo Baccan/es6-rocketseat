@@ -1,12 +1,21 @@
 "use strict";
 
-// Template Literals
+// Object Short Syntax
 var nome = "Baccan";
 var idade = 21; // Não faça isso...
 
 /*
-  console.log("Meu nome é " + nome + " e tenho " + idade + " anos agora");
+  const usuario = {
+    nome: nome,
+    idade: idade,
+    empresa: 'Casa'
+  }
 */
-// Faça isso:
+// faça isso:
 
-console.log("Meu nome \xE9 ".concat(nome, " e tenho ").concat(idade, " anos agora"));
+var usuario = {
+  nome: nome,
+  idade: idade,
+  empresa: "Casa"
+};
+console.log(usuario);

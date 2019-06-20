@@ -1,10 +1,20 @@
-// Template Literals
+// Object Short Syntax
 const nome = "Baccan";
 const idade = 21;
 
 // Não faça isso...
 /*
-  console.log("Meu nome é " + nome + " e tenho " + idade + " anos agora");
+  const usuario = {
+    nome: nome,
+    idade: idade,
+    empresa: 'Casa'
+  }
 */
-// Faça isso:
-console.log(`Meu nome é ${nome} e tenho ${idade} anos agora`);
+// faça isso:
+const usuario = {
+  nome,
+  idade,
+  empresa: "Casa"
+};
+
+console.log(usuario);
