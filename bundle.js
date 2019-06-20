@@ -1,33 +1,32 @@
 "use strict";
 
-var arr = [1, 3, 4, 5, 6, 8]; // map() percorre um array e retorna algo
-// item = valor recebido 1 a um pelo array
-// index = posição do itemno array
+var arr = [1, 3, 4, 5, 6, 8]; // function é considerada uma função anônima por não ter um nome atribuido a ela
+// const newArr = arr.map(function(item) {
+//   return item * 2;
+// });
+// logo, ela pode ser substituida por uma arrow function, como abaixo
+// const newArr = arr.map(item => {
+//   return item * 2;
+// });
+// como não possui um corpo extenso dentro da função, tendo apenas uma linha com o retorno do item * 2, podemos simplificar mais ainda
 
-var newArr = arr.map(function (item, index) {
-  return item + index;
+var newArr = arr.map(function (item) {
+  return item * 2;
 });
-console.log(newArr); // Reduce - consome o vetor e transforma em um unico valor
-// total = cada vez que executa, pega o valor do retorno e atriu-se
-// next = próximo valor
+console.log(newArr); // criando funções como constantes (não recomendado)
 
-var sum = arr.reduce(function (total, next) {
-  return total + next; // 1ª vez - total = 0 e next = 1
-  // 2ª vez - total = 1 e next = 3
-  // 3ª vez - total = 4 e next = 4
-  // 4ª vez - total = 8 e next = 5
-  // assim por todo o array...
-});
-console.log(sum); // filter - pega determinados valores do array
+var teste = function teste() {
+  return "teste";
+};
 
-var filter = arr.filter(function (item) {
-  // filtro para tem um array com apenas os numeros pares
-  return item % 2 === 0;
-});
-console.log(filter); // find - utilizado para verificar se existe algo ou se é possivel encontrar algo no array
+console.log(teste()); // Chamando esta função pelo nome de sua variavel temos o seguinte retorno
 
-var find = arr.find(function (item) {
-  // encontre um item que seja igual a 4
-  return item === 4;
-});
-console.log(find);
+console.log(teste); // exemplo de retorno de objeto
+
+var objeto = function objeto() {
+  return {
+    array: [1, 2, 3, 4, 5]
+  };
+};
+
+console.log(objeto());
