@@ -1,52 +1,25 @@
 "use strict";
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// Constantes não podem ter seu valor inicial alterado
+var a = 1; // a = 3;
+// Exemplo de mutação de variável
+// É quando se altera o valor de uma propriedade sem alterar sua estrutura inicial
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+var usuario = {
+  nome: "Baccan"
+};
+usuario.nome = "Gustavo";
+console.log(usuario); // Exemplo de variavel de escopo 'let'
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function teste(x) {
+  var y = 2;
 
-var TodoList =
-/*#__PURE__*/
-function () {
-  function TodoList() {
-    _classCallCheck(this, TodoList);
+  if (x > 5) {
+    var _y = 4;
+    console.log(x, _y);
   }
+} // Descomente este console para ver o resultado de uma variavel que é chamada fora de seu escopo. No caso, y esta sendo chamado de fora da function teste()
+//console.log(y)
 
-  _createClass(TodoList, [{
-    key: "construction",
-    value: function construction() {
-      this.todos = [];
-    } // static não recebe as funcionalidades do constructor
-    // Utilizado para passar informações e retornar informações independente das outras funcionalidades da classe
 
-  }], [{
-    key: "addTodo",
-    value: function addTodo() {
-      this.todos.push('Novo todo');
-      console.log(this.todos);
-    }
-  }]);
-
-  return TodoList;
-}();
-
-var Matematica =
-/*#__PURE__*/
-function () {
-  function Matematica() {
-    _classCallCheck(this, Matematica);
-  }
-
-  _createClass(Matematica, null, [{
-    key: "soma",
-    value: function soma(a, b) {
-      return a + b;
-    }
-  }]);
-
-  return Matematica;
-}();
-
-console.log(Matematica.soma(1, 2));
-TodoList.addTodo(); // Erro proposital para verificar o funcionamento do método static
+teste(10);
