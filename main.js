@@ -1,25 +1,40 @@
-// Constantes não podem ter seu valor inicial alterado
-const a = 1;
-// a = 3;
+const arr = [1, 3, 4, 5, 6, 8];
 
-// Exemplo de mutação de variável
-// É quando se altera o valor de uma propriedade sem alterar sua estrutura inicial
-const usuario = { nome: "Baccan" };
+// map() percorre um array e retorna algo
+// item = valor recebido 1 a um pelo array
+// index = posição do itemno array
+const newArr = arr.map(function(item, index) {
+  return item + index;
+});
 
-usuario.nome = "Gustavo";
+console.log(newArr);
 
-console.log(usuario);
+// Reduce - consome o vetor e transforma em um unico valor
+// total = cada vez que executa, pega o valor do retorno e atriu-se
+// next = próximo valor
+const sum = arr.reduce(function(total, next) {
+  return total + next;
+  // 1ª vez - total = 0 e next = 1
+  // 2ª vez - total = 1 e next = 3
+  // 3ª vez - total = 4 e next = 4
+  // 4ª vez - total = 8 e next = 5
+  // assim por todo o array...
+});
 
-// Exemplo de variavel de escopo 'let'
-function teste(x) {
-  let y = 2;
+console.log(sum);
 
-  if (x > 5) {
-    let y = 4;
-    console.log(x, y);
-  }
-}
-// Descomente este console para ver o resultado de uma variavel que é chamada fora de seu escopo. No caso, y esta sendo chamado de fora da function teste()
-//console.log(y)
+// filter - pega determinados valores do array
+const filter = arr.filter(function(item) {
+  // filtro para tem um array com apenas os numeros pares
+  return item % 2 === 0;
+});
 
-teste(10);
+console.log(filter);
+
+// find - utilizado para verificar se existe algo ou se é possivel encontrar algo no array
+const find = arr.find(function(item) {
+  // encontre um item que seja igual a 4
+  return item === 4;
+});
+
+console.log(find);
