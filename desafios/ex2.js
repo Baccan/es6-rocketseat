@@ -1,3 +1,7 @@
+// Para ver este desafio, altere o valor do script "desafio_conceito" no arquivo "package.json"
+/*
+    "desafio_conceito": "babel ./desafios/ex2.js -o ./bundle.js -w"
+*/
 const usuarios = [
   { nome: "Diego", idade: 23, empresa: "Rocketseat" },
   { nome: "Gabriel", idade: 15, empresa: "Rocketseat" },
