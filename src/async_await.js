@@ -1,3 +1,4 @@
+// Para visualizar este script, reconfigure o webpack ou copie-o e cole em './main.js'
 const minhaPromise = () => new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('OK')
