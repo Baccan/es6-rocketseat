@@ -12,10 +12,13 @@
     "@babel/preset-env": "^7.4.5",
     "babel-loader": "8.0.0-beta.0",
     "webpack": "^4.35.0",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   },
   "scripts": {
+    "serve": "webpack-dev-server --mode=development",
     "dev": "webpack --mode=development -w",
+    "build": "webpack --mode=production",
     "conceitos": "babel ./conceitos/Rest_Spread.js -o ./bundle.js -w",
     "desafio_conceito": "babel ./conceitos/desafios/ex7.js -o ./bundle.js -w"
   }
