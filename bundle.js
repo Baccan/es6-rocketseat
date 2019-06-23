@@ -3,80 +3,34 @@
 // Para ver este desafio, altere o valor do script "desafio_conceito" no arquivo "package.json"
 
 /*
-    "desafio_conceito": "babel ./desafios/ex3.js -o ./bundle.js -w"
+    "desafio_conceito": "babel ./desafios/ex4.js -o ./bundle.js -w"
 */
-// 3.1
-
-/*
-  const arr = [1, 2, 3, 4, 5];
-  arr.map(function(item) {
-    return item + 10;
-  });
-*/
-var arr = [1, 2, 3, 4, 5];
-console.log(arr.map(function (item) {
-  return item + 10;
-})); // 3.2
-// Dica: Utilize uma constante pra function
-
-/*
-  const usuario = { nome: "Diego", idade: 23 };
-  function mostraIdade(usuario) {
-    return usuario.idade;
+// 4.1 Desestruturação simples
+var empresa = {
+  nome: 'Rocketseat',
+  endereco: {
+    cidade: 'Rio do Sul',
+    estado: 'SC'
   }
-  mostraIdade(usuario);
-*/
+};
+var nome = empresa.nome,
+    _empresa$endereco = empresa.endereco,
+    cidade = _empresa$endereco.cidade,
+    estado = _empresa$endereco.estado;
+console.log(nome); // Rocketseat
 
-var usuario = {
-  nome: "Diego",
+console.log(cidade); // Rio do Sul
+
+console.log(estado); // SC
+// 4.2 Desestruturação em parâmetros
+
+function mostraInfo(usuario) {
+  var nome = usuario.nome,
+      idade = usuario.idade;
+  return "".concat(nome, " tem ").concat(idade, " anos."); // return `${usuario.nome} tem ${usuario.idade} anos.`;
+}
+
+console.log(mostraInfo({
+  nome: 'Diego',
   idade: 23
-};
-
-var mostraIdade = function mostraIdade(usuario) {
-  return usuario.idade;
-};
-
-console.log(mostraIdade(usuario)); // 3.3
-// Dica: Utilize uma constante pra function
-
-/*
-  const nome = "Diego";
-  const idade = 23;
-  function mostraUsuario(nome = "Diego", idade = 18) {
-    return { nome, idade };
-  }
-
-  mostraUsuario(nome, idade);
-  mostraUsuario(nome);
-*/
-
-var nome = "Diego";
-var idade = 23;
-
-var mostraUsuario = function mostraUsuario() {
-  var nome = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Diego";
-  var idade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 18;
-  return {
-    nome: nome,
-    idade: idade
-  };
-};
-
-console.log(mostraUsuario(nome, idade));
-console.log(mostraUsuario(nome)); // 3.4
-
-/*
-  const promise = function() {
-    return new Promise(function(resolve, reject) {
-      return resolve();
-    });
-  };
-*/
-
-var promise = function promise() {
-  return new Promise(function (resolve, reject) {
-    return resolve();
-  });
-};
-
-console.log(promise());
+}));
