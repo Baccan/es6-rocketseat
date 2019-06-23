@@ -3,6 +3,7 @@ class App {
     this.repositories = [];
 
     this.fromEl = document.querySelector('#repo-form');
+    this.listEl = document.querySelector('#repo-list');
 
     this.registerHandlers();
   }
@@ -21,7 +22,36 @@ class App {
       html_url: 'http://github.com/baccan/es6-rocketseat',
     })
 
-    console.log(this.repositories)
+    this.render();
+    // console.log(this.repositories)
+  }
+
+  render() {
+    this.listEl.innerHTML = '';
+
+    this.repositories.forEach(repo => {
+      let imgEl = document.createElement('img');
+
+      imgEl.setAttribute('src', repo.avatar_url);
+
+      let titleEl = document.createElement('strong');
+      titleEl.appendChild(document.createTextNode(repo.name))
+
+      let descriptionEl = document.createElement('p')
+      descriptionEl.appendChild(document.createTextNode(repo.description))
+
+      let linkEl = document.createElement('a')
+      linkEl.setAttribute('target', '_blank')
+      linkEl.appendChild(document.createTextNode('Acessar'))
+
+      let listItemEl = document.createElement('li');
+      listItemEl.appendChild(imgEl);
+      listItemEl.appendChild(titleEl);
+      listItemEl.appendChild(descriptionEl);
+      listItemEl.appendChild(linkEl);
+
+      this.listEl.appendChild(listItemEl)
+    })
   }
 }
 
