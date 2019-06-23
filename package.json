@@ -23,5 +23,8 @@
     "build": "webpack --mode=production",
     "conceitos": "babel ./conceitos/Rest_Spread.js -o ./bundle.js -w",
     "desafio_conceito": "babel ./conceitos/desafios/ex7.js -o ./bundle.js -w"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
   }
 }
