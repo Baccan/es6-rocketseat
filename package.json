@@ -13,6 +13,6 @@
   },
   "scripts": {
     "dev": "babel ./main.js -o ./bundle.js -w",
-    "desafio_conceito": "babel ./desafios/ex4.js -o ./bundle.js -w"
+    "desafio_conceito": "babel ./desafios/ex5.js -o ./bundle.js -w"
   }
 }
