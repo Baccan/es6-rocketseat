@@ -4,7 +4,7 @@ class App {
   constructor() {
     this.repositories = [];
 
-    this.fromEl = document.querySelector('#repo-form');
+    this.formEl = document.querySelector('#repo-form');
     this.inputEl = document.querySelector('input[name=repository]');
     this.listEl = document.querySelector('#repo-list');
 
@@ -12,7 +12,19 @@ class App {
   }
 
   registerHandlers() {
-    this.fromEl.onsubmit = event => this.addRepository(event)
+    this.formEl.onsubmit = event => this.addRepository(event)
+  }
+
+  setLoading(loading = true) {
+    if (loading) {
+      let loadingEl = document.createElement('span');
+      loadingEl.appendChild(document.createTextNode('Carregando...'))
+      loadingEl.setAttribute('id', 'loading')
+
+      this.formEl.appendChild(loadingEl)
+    } else {
+      document.querySelector('#loading').remove()
+    }
   }
 
   async addRepository(event) {
@@ -20,31 +32,39 @@ class App {
 
     const repoInput = this.inputEl.value;
 
+    this.setLoading()
+
     if (!repoInput)
       return;
 
-    const response = await api.get(`/repos/${repoInput}`)
+    try {
+      const response = await api.get(`/repos/${repoInput}`)
 
-    const {
-      name,
-      description,
-      html_url,
-      owner: {
-        avatar_url
-      }
-    } = response.data
+      const {
+        name,
+        description,
+        html_url,
+        owner: {
+          avatar_url
+        }
+      } = response.data
 
-    this.repositories.push({
-      name,
-      description,
-      avatar_url,
-      html_url,
-    })
+      this.repositories.push({
+        name,
+        description,
+        avatar_url,
+        html_url,
+      })
 
-    this.inputEl.value = '';
+      this.inputEl.value = '';
 
-    this.render();
-    // console.log(this.repositories)
+      this.render();
+      // console.log(this.repositories)
+    } catch (err) {
+      alert('O repositório não existe')
+    }
+
+    this.setLoading(false)
   }
 
   render() {
