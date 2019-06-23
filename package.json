@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Curso rocketseat javascript com ES6+",
   "main": "index.js",
-  "author": "Gustavo Baccan Gomes <gustavo.gomes@butantan.gov.br>",
+  "author": "Gustavo Baccan Gomes <gustavobaccang@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/cli": "^7.4.4",
@@ -13,6 +13,7 @@
   },
   "scripts": {
     "dev": "babel ./main.js -o ./bundle.js -w",
-    "desafio_conceito": "babel ./desafios/ex7.js -o ./bundle.js -w"
+    "conceitos": "babel ./conceitos/Rest_Spread.js -o ./bundle.js -w",
+    "desafio_conceito": "babel ./conceitos/desafios/ex7.js -o ./bundle.js -w"
   }
 }
